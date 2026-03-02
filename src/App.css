@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+main {
+    box-sizing: border-box;
+    min-height: 100vh;
+    background-color: #F8FAFC;
+    color: #0F172A;
+    font-family: "Inter", sans-serif;
+    text-align: center;
+    padding: 40px;
+    gap: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.select-search {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+button {
+    padding: 8px 16px;
+    border-radius: 16px;
+    border: none;
+    background-color: #2563EB;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1D4ED8;
+}
+
+.button-search {
+    border-radius: 0 16px 16px 0;
+    border: solid 1px #1D4ED8;
+}
+
+input {
+    border: solid 1px #64748B;
+    border-radius: 16px 0 0 16px;
+    padding: 8px 16px;
+    color: #64748B;
+}
+
+.results {
+    margin: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.result {
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    padding: 16px;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+}
+
+.result:hover {
+    background-color: #e3e3e4;
+}
+
+.selected {
+    border-radius: 12px;
+    border: 2px solid #16A34A;
+    background-color: #ECFDF5;
+}
+
+.selected:hover {
+    background-color: #ECFDF5;
+}
+
+.error {
+    color: #DC2626;
+}
