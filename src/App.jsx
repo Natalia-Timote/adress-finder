@@ -13,7 +13,7 @@ function App() {
   const [error, setError] = useState('');
 
   const [logradouro, setLogradouro] = useState('');
-  const [results, setResults] = useState(null);
+  const [results, setResults] = useState([]);
   const [selectedCep, setSelectedCep] = useState(null);
 
   function chooseScreen(type) {
@@ -30,7 +30,7 @@ function App() {
   async function handleSearchCep() {
     setLoading(true);
 
-    if (cep.length !== 8) {
+    if (!/^\d{8}$/.test(cep)) {
       setAdress(null);
       setLoading(false);
       setError('O CEP precisa conter 8 dígitos. Tente novamente!');
@@ -67,8 +67,8 @@ function App() {
     setLoading(true);
     setSelectedCep(null);
 
-    if (!logradouro.trim()) {
-      setError('Logradouro inválido. Tente novamente!');
+    if (logradouro.trim().length < 3) {
+      setError('Digite pelo menos 3 caracteres.');
       setLoading(false);
       return;
     }
@@ -110,6 +110,7 @@ function App() {
           handleSearchCep={handleSearchCep}
           adress={adress}
           error={error}
+          setError={setError}
           loading={loading}
         />
       }
@@ -123,6 +124,7 @@ function App() {
           selectedCep={selectedCep}
           setSelectedCep={setSelectedCep}
           error={error}
+          setError={setError}
           loading={loading}
         />
       }

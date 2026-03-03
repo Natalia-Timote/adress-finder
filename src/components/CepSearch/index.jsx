@@ -1,11 +1,23 @@
 import './CepSearch.style.css';
 
-export default function CepSearch({ cep, setCep, handleSearchCep, adress, error, loading }) {
+export default function CepSearch({ cep, setCep, handleSearchCep, adress, error, setError, loading }) {
     return (
         <section className='cep'>
             <h2>Buscar endereço via CEP</h2>
-            <input type="text" placeholder='Insira o CEP' value={cep} onBlur={handleSearchCep} onChange={(e) => setCep(e.target.value)} />
-            <button className='button-search' onClick={handleSearchCep}>Buscar</button>
+            <form onSubmit={(e) => {
+                e.preventDefault();
+                handleSearchCep();
+            }}>
+                <input
+                    type="text"
+                    placeholder='Insira o CEP'
+                    value={cep}
+                    onChange={(e) => {
+                        setCep(e.target.value);
+                        setError('');
+                    }} />
+                <button className='button-search' type='submit' disabled={loading}>Buscar</button>
+            </form>
 
             <div className='results'>
                 {adress && (
