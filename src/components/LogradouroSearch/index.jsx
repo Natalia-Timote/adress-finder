@@ -1,5 +1,7 @@
 import Button from '../Button';
+import Card from '../Card';
 import Input from '../Input';
+import ResultItem from '../ResultItem';
 import './LogradouroSearch.style.css';
 
 export default function LogradouroSearch({ logradouro, setLogradouro, handleSearchLogradouro, results, selectedCep, setSelectedCep, error, setError, loading }) {
@@ -23,13 +25,9 @@ export default function LogradouroSearch({ logradouro, setLogradouro, handleSear
 
       <div className='results'>
         {selectedCep && (
-          <div className='selected'>
-            <p>CEP: {selectedCep.cep}</p>
-            <p>Endereço: {selectedCep.logradouro}</p>
-            <p>Bairro: {selectedCep.bairro}</p>
-            <p>Cidade: {selectedCep.localidade}</p>
-            <p>Estado: {selectedCep.uf}</p>
-          </div>
+          <Card className='card-selected'>
+            <ResultItem data={selectedCep} />
+          </Card>
         )}
       </div>
 
@@ -38,13 +36,9 @@ export default function LogradouroSearch({ logradouro, setLogradouro, handleSear
           <p>Resultados para Florianópolis - SC</p>
           {results.map((item) => {
             return (
-              <div className={`result ${selectedCep?.cep === item.cep ? 'selected' : ''}`} key={item.cep} onClick={() => setSelectedCep(item)}>
-                <p>CEP: {item.cep}</p>
-                <p>Endereço: {item.logradouro}</p>
-                <p>Bairro: {item.bairro}</p>
-                <p>Cidade: {item.localidade}</p>
-                <p>Estado: {item.uf}</p>
-              </div>
+              <Card className={`card ${selectedCep?.cep === item.cep ? 'selected' : ''}`} key={item.cep} onClick={() => setSelectedCep(item)}>
+                <ResultItem data={item} />
+              </Card>
             )
 
           })}

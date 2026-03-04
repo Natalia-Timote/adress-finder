@@ -1,5 +1,7 @@
 import Button from '../Button';
+import Card from '../Card';
 import Input from '../Input';
+import ResultItem from '../ResultItem';
 import './CepSearch.style.css';
 
 export default function CepSearch({ cep, setCep, handleSearchCep, adress, error, setError, loading }) {
@@ -22,12 +24,9 @@ export default function CepSearch({ cep, setCep, handleSearchCep, adress, error,
 
             <div className='results'>
                 {adress && (
-                    <div className='result'>
-                        <p>Endereço: {adress.logradouro}</p>
-                        <p>Bairro: {adress.bairro}</p>
-                        <p>Cidade: {adress.localidade}</p>
-                        <p>Estado: {adress.uf}</p>
-                    </div>
+                    <Card className='card'>
+                        <ResultItem data={adress} />
+                    </Card>
                 )}
             </div>
 

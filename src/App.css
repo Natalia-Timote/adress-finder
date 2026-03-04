@@ -22,29 +22,6 @@ main {
     gap: 16px;
 }
 
-.result {
-    border: 1px solid #E2E8F0;
-    border-radius: 12px;
-    padding: 16px;
-    background: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    transition: all 0.2s ease;
-}
-
-.result:hover {
-    background-color: #e3e3e4;
-}
-
-.selected {
-    border-radius: 12px;
-    border: 2px solid #16A34A;
-    background-color: #ECFDF5;
-}
-
-.selected:hover {
-    background-color: #ECFDF5;
-}
-
 .error {
     color: #DC2626;
 }
