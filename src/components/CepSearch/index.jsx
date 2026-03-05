@@ -4,7 +4,7 @@ import Input from '../Input';
 import ResultItem from '../ResultItem';
 import './CepSearch.style.css';
 
-export default function CepSearch({ cep, setCep, handleSearchCep, adress, error, setError, loading }) {
+export default function CepSearch({ cep, setCep, handleSearchCep, address, error, setError, loading }) {
     return (
         <section className='cep'>
             <h2>Buscar endereço via CEP</h2>
@@ -23,9 +23,9 @@ export default function CepSearch({ cep, setCep, handleSearchCep, adress, error,
             </form>
 
             <div className='results'>
-                {adress && (
+                {address && (
                     <Card>
-                        <ResultItem data={adress} />
+                        <ResultItem data={address} />
                     </Card>
                 )}
             </div>

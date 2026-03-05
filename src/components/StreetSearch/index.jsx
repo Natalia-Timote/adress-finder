@@ -2,21 +2,21 @@ import Button from '../Button';
 import Card from '../Card';
 import Input from '../Input';
 import ResultItem from '../ResultItem';
-import './LogradouroSearch.style.css';
+import './StreetSearch.style.css';
 
-export default function LogradouroSearch({ logradouro, setLogradouro, handleSearchLogradouro, results, selectedCep, setSelectedCep, error, setError, loading }) {
+export default function StreetSearch({ street, setStreet, handleSearchStreet, results, selectedCep, setSelectedCep, error, setError, loading }) {
   return (
-    <section className='logradouro'>
+    <section className='street'>
       <h2>Buscar CEP via logradouro</h2>
       <form onSubmit={(e) => {
         e.preventDefault();
-        handleSearchLogradouro();
+        handleSearchStreet();
       }}>
         <Input
           placeholder='Insira o logradouro'
-          value={logradouro}
+          value={street}
           onChange={(e) => {
-            setLogradouro(e.target.value);
+            setStreet(e.target.value);
             setError('');
           }}
         />
@@ -31,9 +31,9 @@ export default function LogradouroSearch({ logradouro, setLogradouro, handleSear
         )}
       </div>
 
+      <p>Resultados para Florianópolis - SC</p>
       {results.length > 0 && (
         <div className='results'>
-          <p>Resultados para Florianópolis - SC</p>
           {results.map((item) => {
             return (
               <Card className={`card ${selectedCep?.cep === item.cep ? 'selected' : ''}`} key={item.cep} onClick={() => setSelectedCep(item)}>

@@ -2,28 +2,28 @@ import { useState } from 'react'
 import './App.css'
 import SearchSelector from './components/SearchSelector';
 import CepSearch from './components/CepSearch';
-import LogradouroSearch from './components/LogradouroSearch';
-import { getCep, getLogradouro } from './services/viacep.service';
+import StreetSearch from './components/StreetSearch';
+import { getCep, getStreet } from './services/viacep.service';
 
 function App() {
   const [screen, setScreen] = useState('cep');
 
   const [cep, setCep] = useState('');
-  const [adress, setAdress] = useState(null);
+  const [address, setAddress] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  const [logradouro, setLogradouro] = useState('');
+  const [street, setStreet] = useState('');
   const [results, setResults] = useState([]);
   const [selectedCep, setSelectedCep] = useState(null);
 
   function chooseScreen(type) {
     setScreen(type);
     setCep('');
-    setAdress(null);
+    setAddress(null);
     setLoading(false);
     setError('');
-    setLogradouro('');
+    setStreet('');
     setResults([]);
     setSelectedCep(null);
   }
@@ -32,7 +32,7 @@ function App() {
     setLoading(true);
 
     if (!/^\d{8}$/.test(cep)) {
-      setAdress(null);
+      setAddress(null);
       setLoading(false);
       setError('O CEP precisa conter 8 dígitos. Tente novamente!');
       return;
@@ -41,31 +41,31 @@ function App() {
     try {
       const data = await getCep(cep);
 
-      setAdress(data);
+      setAddress(data);
       setError('');
     } catch (error) {
       setError(error.message);
-      setAdress(null);
+      setAddress(null);
     } finally {
       setLoading(false);
     }
   }
 
-  async function handleSearchLogradouro() {
+  async function handleSearchStreet() {
     setLoading(true);
     setSelectedCep(null);
 
-    if (logradouro.trim().length < 3) {
+    if (street.trim().length < 3) {
       setError('Digite pelo menos 3 caracteres.');
       setLoading(false);
       return;
     }
 
     try {
-      const data = await getLogradouro(
+      const data = await getStreet(
         'SC',
         'Florianopolis',
-        logradouro
+        street
       )
 
       setResults(data);
@@ -87,18 +87,18 @@ function App() {
           cep={cep}
           setCep={setCep}
           handleSearchCep={handleSearchCep}
-          adress={adress}
+          address={address}
           error={error}
           setError={setError}
           loading={loading}
         />
       }
 
-      {screen === 'logradouro' &&
-        <LogradouroSearch
-          logradouro={logradouro}
-          setLogradouro={setLogradouro}
-          handleSearchLogradouro={handleSearchLogradouro}
+      {screen === 'street' &&
+        <StreetSearch
+          street={street}
+          setStreet={setStreet}
+          handleSearchStreet={handleSearchStreet}
           results={results}
           selectedCep={selectedCep}
           setSelectedCep={setSelectedCep}

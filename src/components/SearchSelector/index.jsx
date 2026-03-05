@@ -4,10 +4,10 @@ import './SearchSelector.style.css';
 export default function SearchSelector({ onChangeScreen }) {
     return (
         <section className='search-selector'>
-            <img className='adress-logo' src="./adress.png" alt="" />
-            <h1>Adress Finder</h1>
+            <img className='address-logo' src="./address.png" alt="" />
+            <h1>Address Finder</h1>
             <Button onClick={() => onChangeScreen('cep')}>Buscar com CEP</Button>
-            <Button onClick={() => onChangeScreen('logradouro')}>Buscar com logradouro</Button>
+            <Button onClick={() => onChangeScreen('street')}>Buscar com logradouro</Button>
         </section>
     )
 }

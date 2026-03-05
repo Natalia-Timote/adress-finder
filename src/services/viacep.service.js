@@ -16,8 +16,8 @@ export async function getCep(cep) {
     return data;
 }
 
-export async function getLogradouro(uf, cidade, logradouro) {
-    const response = await fetch(`${BASE_URL}/${uf}/${cidade}/${logradouro}/json/`);
+export async function getStreet(uf, cidade, street) {
+    const response = await fetch(`${BASE_URL}/${uf}/${cidade}/${street}/json/`);
 
     if (!response.ok) {
         throw new Error('Erro na API');
