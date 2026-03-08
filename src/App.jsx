@@ -59,8 +59,8 @@ function App() {
     setLoading(true);
     setSelectedCep(null);
 
-    if (uf.length !== 2) {
-      setError('Estado deve conter somente 2 caracteres.');
+    if (!uf) {
+      setError('Selecione um estado.');
       setLoading(false);
       return;
     }

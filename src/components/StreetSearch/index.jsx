@@ -1,3 +1,4 @@
+import { states } from '../../constants/states';
 import Button from '../Button';
 import Card from '../Card';
 import Input from '../Input';
@@ -29,16 +30,21 @@ export default function StreetSearch({ uf, setUf, city, setCity, street, setStre
             setError('');
           }}
         />
-        <Input
+        <select
           placeholder='UF (ex: SP)'
           value={uf}
-          maxLength={2}
-          style={{ textTransform: 'uppercase' }}
           onChange={(e) => {
             setUf(e.target.value);
             setError('');
           }}
-        />
+        >
+          <option value=''>Selecione um estado</option>
+          {states.map((state) => (
+            <option key={state.uf} value={state.uf}>
+              {state.name} ({state.uf})
+            </option>
+          ))}
+        </select>
 
         <Button className='button-search' type='submit' disabled={loading}>Buscar</Button>
       </form>
