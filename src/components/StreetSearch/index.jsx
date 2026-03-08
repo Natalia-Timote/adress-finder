@@ -31,7 +31,7 @@ export default function StreetSearch({ uf, setUf, city, setCity, street, setStre
           }}
         />
         <select
-          placeholder='UF (ex: SP)'
+          className='select-state'
           value={uf}
           onChange={(e) => {
             setUf(e.target.value);

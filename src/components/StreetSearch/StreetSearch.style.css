@@ -5,3 +5,11 @@
     margin: 0 auto;
     width: 240px;
 }
+
+.select-state {
+    border: solid 1px #64748B;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 8px 16px;
+    color: #64748B;
+}
