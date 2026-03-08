@@ -22,7 +22,7 @@ export default function CepSearch({ cep, setCep, handleSearchCep, address, error
                 <Button className='button-search' type='submit' disabled={loading}>Buscar</Button>
             </form>
 
-            <div className='results'>
+            <div className='results-container'>
                 {address && (
                     <Card className='card-selected'>
                         <ResultItem data={address} />

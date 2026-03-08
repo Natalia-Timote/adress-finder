@@ -49,7 +49,7 @@ export default function StreetSearch({ uf, setUf, city, setCity, street, setStre
         <Button className='button-search' type='submit' disabled={loading}>Buscar</Button>
       </form>
 
-      <div className='results'>
+      <div className='results-container'>
         {selectedCep && (
           <Card className='card-selected'>
             <ResultItem data={selectedCep} />
@@ -58,14 +58,16 @@ export default function StreetSearch({ uf, setUf, city, setCity, street, setStre
       </div>
 
       {results.length > 0 && (
-        <div className='results'>
+        <>
           <p style={{ textTransform: 'uppercase' }}>Resultados para {city} - {uf}</p>
-          <ResultList
-            results={results}
-            selectedCep={selectedCep}
-            setSelectedCep={setSelectedCep}
-          />
-        </div>
+          <div className='results-container'>
+            <ResultList
+              results={results}
+              selectedCep={selectedCep}
+              setSelectedCep={setSelectedCep}
+            />
+          </div>
+        </>
       )}
 
       {error && <p className='error'>{error}</p>}
