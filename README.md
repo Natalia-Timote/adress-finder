@@ -65,8 +65,8 @@ O projeto aplica:
 * Código organizado e legível
 
 ## 🆕 Atualizações Recentes
-* Adicionado componente reutilizável para copiar valores com um clique.
-* Tooltip com feedback visual ("Copiar" / "Copiado!").
+* Adicionado componente reutilizável para copiar valores com um clique
+* Tooltip com feedback visual ("Copiar" / "Copiado!")
 * Refatoração da busca por logradouro para permitir consulta dinâmica por UF e cidade
 * Criação de camada de serviço para integração com a API (viacep.service)
 * Separação das telas em componentes independentes
