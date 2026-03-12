@@ -38,6 +38,7 @@ Após a busca, os dados retornados podem ser **copiados facilmente com um clique
 **Busca por Logradouro**
 - Buscar CEP a partir de logradouro, cidade e UF
 - Listagem de resultados
+- Opção de **copiar valores com um clique**
 - Seleção com destaque visual
 - Tratamento de ausência de resultados e erro de API
 
