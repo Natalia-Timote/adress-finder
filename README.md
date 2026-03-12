@@ -76,6 +76,28 @@ O projeto aplica:
 * Testes de componentes para validação de comportamento
 * Código organizado e legível
 
+## 🖼️ Visualização do Projeto
+
+Uma prévia das principais funcionalidades da aplicação:
+
+**🔎 Busca por CEP**
+
+Consulta de endereço a partir de um CEP, com exibição de logradouro, bairro, cidade e estado.
+
+<img src="/public/address-finder-cep.png" alt="Busca de endereço por CEP" width="500"/>
+
+**🏙️ Busca por Logradouro**
+
+Permite buscar CEPs informando **logradouro, cidade e UF**, exibindo uma lista de resultados.
+
+<img src="/public/address-finder-street.png" alt="Busca de CEP por logradouro" width="500"/>
+
+**🌐 Acesse o Projeto Online**
+
+O projeto está disponível para visualização na Vercel:
+
+<a href="https://adress-finder.vercel.app/" target="_blank">![Static Badge](https://img.shields.io/badge/Vercel-project?style=for-the-badge&color=A91079)</a>
+
 ## 👩‍💻 Sobre a Autora
 
 Desenvolvido por **Natalia Mirian Timote**, desenvolvedora e educadora em tecnologia e programação.
